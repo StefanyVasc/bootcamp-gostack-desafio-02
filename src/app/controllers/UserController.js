@@ -62,7 +62,7 @@ class UserController {
         return res.status(400).json({ error: 'User already exists.' });
       }
     }
-
+    // só faço isso se ele informou a senha antiga, isto é, quer alterar a senha
     if (oldPassword && !(await user.checkPassword(oldPassword))) {
       return res.status(401).json({ error: 'Password does not match' });
     }
